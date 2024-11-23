@@ -77,20 +77,20 @@ export class GetAPIsService {
   }
 
 
-  
-    private selectedArticle: any;
 
-    setArticle(article: any): void {
-      this.selectedArticle = article;
-    }
+  private selectedArticle: any;
 
-    getArticle(): any {
-      return this.selectedArticle;
-    }
+  setArticle(article: any): void {
+    this.selectedArticle = article;
+  }
+
+  getArticle(): any {
+    return this.selectedArticle;
+  }
 
 
   articlesFilter(country: string = "", source: string = "", category: string = "", q: string = ""): Observable<any> {
-    return this._HttpClient.get(`${this.apiUrl}?country=${country}&category=${category}&q=${q}`);
+    return this._HttpClient.get(`${this.apiUrl}?country=${country}&category=${category}&q=${q}&sources=${source}`);
   }
 
   randomArticles(): Observable<any[]> {
