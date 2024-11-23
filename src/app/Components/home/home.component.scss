@@ -1,0 +1,66 @@
+.img-bg{
+    height: 100vh;
+    background-image: url('https://i.abcnewsfe.com/a/9bf055d8-56d4-41b8-8b92-314908bb8c18/spirit-main_1731927229653_hpMain_16x9.jpg?w=1600');
+    // background-image: url('https://a57.foxnews.com/static.foxbusiness.com/foxbusiness.com/content/uploads/2023/10/0/0/8144c10b-1.jpg?ve=1&tl=1');
+    background-position: cover;
+    background-size: cover;
+}
+
+.inner-img-bg{
+    // top: 20%;
+    left: 10%;
+    width: 25%;
+}
+
+.category-card-height{
+    height: 280px;
+    overflow: hidden;
+}
+
+.card-img-top {
+    height: 220px !important;
+    object-fit: cover;
+    // cursor: pointer;
+}
+
+
+.category-card-height2{
+    height: 200px;
+    overflow: hidden;
+}
+
+.card-img-top2 {
+    height: 150px !important;
+    object-fit: cover;
+}
+
+
+
+.r-side{
+    height: 300px;
+}
+
+.l-side{
+    height: 600px;
+}
+
+.shadow2{
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3);
+
+}
+
+
+@media screen and (max-width: 571px) {
+    .img-bg {
+        background-position: center; /* وضع الصورة في المنتصف */
+    }
+    .inner-img-bg{
+        width: 50%;
+    }
+}
+
+
+
+
+
+

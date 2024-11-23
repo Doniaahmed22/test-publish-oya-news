@@ -1,0 +1,66 @@
+<nav class="navbar navbar-expand-lg nav-bg-color position-fixed fixed-top">
+  <div class="container-fluid">
+    <a class="navbar-brand blue-color" href="#">OYA NEWs</a>
+    <!-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button> -->
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <i class="fas fa-bars blue-color" ></i> <!-- FontAwesome icon -->
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <li class="nav-item ">
+          <a class="nav-link blue-color" routerLinkActive="active-link" routerLink="/home">HOME</a>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle blue-color" href="#" role="button" data-bs-toggle="dropdown"
+            aria-expanded="false">
+            CATEGORIES
+          </a>
+          <ul class="dropdown-menu">
+            <li *ngFor="let item of categories"><a class="dropdown-item " role="button"
+                (click)="SpecificCategory('category',item.code)">{{item.name}}</a></li>
+          </ul>
+        </li>
+
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle blue-color" href="#" role="button" data-bs-toggle="dropdown"
+            aria-expanded="false">
+            COUNTRY
+          </a>
+          <ul class="dropdown-menu">
+            <li *ngFor="let item of countries"><a class="dropdown-item " role="button"
+                (click)="SpecificCategory('country',item.code)">{{item.name}}</a></li>
+          </ul>
+        </li>
+
+
+        <li class="nav-item">
+          <a class="nav-link blue-color" routerLinkActive="active-link" routerLink="/favourite-articles">FAVOURITE
+            ARTICLES</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link blue-color" routerLinkActive="active-link" routerLink="/about">ABOUT</a>
+        </li>
+
+        <li>
+          <button (click)="toggleTheme()" class="theme-button">
+            <span *ngIf="!themeService.isDarkMode()" class="light-icon">💡</span>
+            <span *ngIf="themeService.isDarkMode()" class="dark-icon">🌙</span>
+          </button>
+
+
+        </li>
+
+      </ul>
+
+    </div>
+  </div>
+</nav>

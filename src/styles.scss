@@ -1,1 +1,198 @@
-/* You can add global styles to this file, and also import other style files */
+// <uniquifier>: Use a unique and descriptive class name
+
+// <uniquifier>: Use a unique and descriptive class name
+// <weight>: Use a value from 400 to 700
+
+// <uniquifier>: Use a unique and descriptive class name
+// <weight>: Use a value from 400 to 700
+
+
+
+// @import url('https://fonts.googleapis.com/css2?family=Sour+Gummy:wdth,wght@103.6,300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville&display=swap');
+
+
+
+:root {
+  --background-color: #e6e6e6;
+  --text-color: rgb(2, 2, 75);
+}
+
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  // font-family: "Sour Gummy", sans-serif;
+  // font-optical-sizing: auto;
+  // font-weight: 300;
+  // font-style: normal;
+  // font-variation-settings:
+  //   "wdth" 103.6;
+  overflow-x: auto;
+
+
+
+
+
+  font-family: "Libre Baskerville", serif;
+  font-weight: 400;
+  font-style: normal;
+
+  &.dark-mode {
+    --background-color: rgb(1, 1, 50);
+    --text-color: #e6e6e6;
+  }
+}
+
+
+
+
+.nav-link.active-link {
+  background-color: rgb(2, 2, 75);
+  color: #e6e6e6;
+  padding: 8px;
+  border-radius: 8px;
+
+  body.dark-mode & {
+    background-color: #e6e6e6;
+    color: rgb(2, 2, 75);
+    padding: 8px;
+    border-radius: 8px;
+    border: 1px solid rgb(2, 2, 75);
+  }
+}
+
+
+
+.white-bg-color {
+  background-color: #e6e6e6;
+  color: rgb(2, 2, 75);
+
+  body.dark-mode & {
+    background-color: rgb(2, 2, 75);
+    color: #e6e6e6;
+  }
+}
+
+
+.nav-bg-color {
+  background-color: #e6e6e6;
+  color: rgb(1, 1, 50);
+
+  body.dark-mode & {
+    background-color: rgb(1, 1, 50);
+    ;
+    color: #e6e6e6;
+  }
+}
+
+
+
+.blue-bg-color {
+  background-color: rgb(2, 2, 75);
+  color: #e6e6e6;
+
+  body.dark-mode & {
+    background-color: #e6e6e6;
+    color: rgb(2, 2, 75);
+  }
+
+}
+
+
+
+.blue-color {
+  color: rgb(2, 2, 75);
+
+  body.dark-mode & {
+    color: #e6e6e6;
+  }
+
+}
+
+
+.white-color {
+  color: rgb(2, 2, 75) !important;
+
+  body.dark-mode & {
+    color: #e6e6e6 !important;
+  }
+
+}
+
+
+
+
+
+
+
+.main-btn {
+  background-color: rgb(2, 2, 75);
+  color: #e6e6e6;
+  padding: 8px;
+  border: 2px solid rgb(2, 2, 75);
+  border-radius: 5px;
+  width: 100%;
+
+  &:hover {
+    background-color: #e6e6e6;
+    color: rgb(2, 2, 75);
+    border: 2px solid rgb(2, 2, 75);
+
+  }
+
+  body.dark-mode & {
+    background-color: #fff;
+    color: rgb(2, 2, 75);
+    border: 2px solid rgb(2, 2, 75);
+
+    &:hover {
+      background-color: rgb(2, 2, 75);
+      color: #e6e6e6;
+      border: 2px solid #e6e6e6;
+    }
+  }
+}
+
+
+.toast-success {
+  background-color: rgb(2, 2, 75) !important;
+  /* لون الخلفية */
+  color: #efefef !important;
+  /* لون النص */
+  border: 2px solid #efefef !important;
+  /* لون الإطار */
+  border-radius: 8px !important;
+  /* تعديل الحواف */
+
+
+  body.dark-mode & {
+    background-color: #e6e6e6 !important;
+    color: rgb(2, 2, 75) !important;
+    border: 2px solid rgb(2, 2, 75) !important;
+
+  }
+}
+
+
+.decoration {
+  text-decoration: underline;
+}
+
+
+.navbar-nav .nav-link.active,
+.navbar-nav .nav-link.show {
+
+  color: rgb(2, 2, 75);
+
+  body.dark-mode & {
+
+    color: #efefef;
+  }
+}
+
+.navbar-toggler {
+  border: 1px solid rgb(2, 2, 75);
+  body.dark-mode & {
+    border: 1px solid #efefef;
+  }
+}

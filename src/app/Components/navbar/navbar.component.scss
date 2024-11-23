@@ -1,0 +1,26 @@
+/* Navbar Styling */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    border-bottom: 1px solid #ccc;
+  }
+  
+  /* Theme Toggle Button */
+  .theme-button {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--text-color);
+    transition: transform 0.2s;
+  }
+  
+  .theme-button:hover {
+    transform: scale(1.2);
+  }
+  
+

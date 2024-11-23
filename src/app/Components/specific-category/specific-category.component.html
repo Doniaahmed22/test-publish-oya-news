@@ -1,0 +1,85 @@
+<section class="filters container mt-5 pt-4">
+    <div class="row justify-content-center align-items-center">
+        <div class="col-3 mb-3">
+            <label for="countries">Country:</label>
+            <select id="countries" [(ngModel)]="selectedCountry" class="form-select">
+                <option *ngFor="let country of countries" [value]="country.code">{{ country.name }}</option>
+            </select>
+        </div>
+
+
+        <div class="col-3 mb-3">
+        <label for="categories">Category:</label>
+            <select id="categories" [(ngModel)]="selectedCategory" class="form-select">
+                <option *ngFor="let category of categories" [value]="category.code">{{ category.name }}</option>
+            </select>
+        </div>
+
+
+        <div class="col-3 mb-3">
+            <label for="sources">Source:</label>
+            <select id="sources" [(ngModel)]="selectedSource" class="form-select">
+                <option *ngFor="let source of sources" [value]="source.code">{{ source.name }}</option>
+            </select>
+        </div>
+
+        <div class="col-3 mb-3">
+            <label for="search">Search:</label>
+            <input type="text" id="search" [(ngModel)]="searchKeyword" class="form-control" placeholder="search..." />
+        </div>
+
+        <div class="col-md-6">
+            <button (click)="applyFilters()" class="main-btn">Search</button>
+        </div>
+
+    </div>
+
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section class="mt-5 container-fluid px-5">
+
+
+
+    <div class="no-news d-flex justify-content-center align-items-center white-color"
+        *ngIf="articles.length == 0  || filteredArticles.length == 0">
+        <h1 class="scale">THERE ARE NO NEWS</h1>
+    </div>
+
+    <div class="row">
+
+        <ng-container *ngFor="let article of filteredArticles">
+
+            <div class="col-md-4 p-3" *ngIf="article.urlToImage !== null">
+                <div class="card  shadow white-bg-color">
+                    <div class="card-img-top">
+                        <img [src]="article.urlToImage" class="w-100 h-100" alt="Image" />
+                    </div>
+                    <div class="card-body text-center position-relative ">
+                        <h5 class="card-title">{{ article.title | cutText:5 }}</h5>
+                        <p class="card-text">{{ article.description | cutText:10 }}</p>
+                        <!-- <p>{{article.publishedAt | date:'shortTime' }}</p> -->
+                        <div
+                            class="position-absolute out-button d-flex justify-content-between align-items-center text-blue">
+                            <button class=" main-btn w-75" (click)="viewDetails(article)">Read More...</button>
+                            <button (click)="toggleFavorite(article)" class="favorite-button ص-25">
+                                <span [ngClass]="{'favorite': isFavorite(article)}">❤️</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </ng-container>
+    </div>
+</section>

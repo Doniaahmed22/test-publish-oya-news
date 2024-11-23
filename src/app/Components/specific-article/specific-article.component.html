@@ -1,0 +1,13 @@
+<section class="container-fluid my-3 p-3">
+    <img [src]="article.urlToImage" class="w-100 mb-3" alt="">
+    <h1>{{article.title}}</h1>
+    <p class="h6">{{article.description}}</p>
+    <p class="h6">{{article.content}}</p>
+    <div class="d-flex justify-content-between">
+        <p>{{article.author}}</p>
+        <p>{{article.publishedAt}}</p>
+    </div>
+    <button class="main-btn" (click)="goToUrl(article.url)">Read Full Article..</button>
+</section>
+
+

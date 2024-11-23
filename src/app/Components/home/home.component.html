@@ -1,0 +1,115 @@
+<section class="position-relative d-flex align-items-center">
+
+    <div class="img-bg w-100" [@fadeIn]="true">
+
+    </div>
+
+    <div class="card text-center inner-img-bg white-bg-color p-3 position-absolute" [@slideUp]="cardVisible">
+        <h1>{{homeArticle.title}}</h1>
+        <button (click)="viewDetails(homeArticle)" view class="main-btn">Read More .</button>
+    </div>
+</section>
+
+
+<section>
+    <h2 class="py-5 text-center decoration">CATEGORIES</h2>
+    <div class="container-fluid px-5">
+        <owl-carousel-o [options]="customOptions">
+            <ng-template carouselSlide *ngFor="let item of categories">
+                <div class="card text-center mx-2 category-card-height " role="button"
+                    (click)="SpecificCategory('category',item.code)">
+                    <div class="">
+                        <img class="card-img-top w-100 " [src]="item.image" alt="Title" />
+                        <div class="card-body ">
+                            <h5 class="card-title">{{item.name}}</h5>
+                        </div>
+                    </div>
+
+                </div>
+            </ng-template>
+
+
+
+        </owl-carousel-o>
+    </div>
+</section>
+
+
+<section>
+    <h2 class="py-5 text-center decoration">COUNTRIES</h2>
+    <div class="container-fluid px-5">
+        <owl-carousel-o [options]="customOptions2">
+
+
+            <ng-template carouselSlide *ngFor="let item of countries">
+                <div class="card text-center mx-2 category-card-height2" role="button"
+                    (click)="SpecificCategory('country',item.code)">
+                    <div class="">
+                        <img class="card-img-top2 w-100 " [src]="item.image" alt="Title" />
+                        <div class="card-body">
+                            <h5 class="card-title">{{item.name}}</h5>
+                        </div>
+                    </div>
+
+                </div>
+            </ng-template>
+
+
+        </owl-carousel-o>
+    </div>
+</section>
+
+
+<section class="container-fluid px-5 my-5">
+
+    <h1 class="text-center decoration">Popular NEWs</h1>
+    <div class="container mt-5">
+        <div class="row g-3">
+            <!-- العمود الأيسر (المستطيل الكبير) -->
+            <div class="col-md-8 shadow" (click)="viewDetails(popularArticles[0])" role="button">
+                <div class="text-white white-bg-color p-3" style="height: 500px;">
+                    <img class="w-100 h-100" [src]="popularArticles[0].urlToImage" [alt]="popularArticles[0].title">
+                </div>
+            </div>
+
+            <!-- العمود الأيمن -->
+            <div class="col-md-4 d-flex flex-column gap-3 justify-content-center">
+                <!-- المربع الأول -->
+                <div class="text-white white-bg-color p-3 shadow" role="button" style="height: 240px;"
+                    (click)="viewDetails(popularArticles[1])">
+                    <img class="w-100 h-100" [src]="popularArticles[1].urlToImage" [alt]="popularArticles[1].title">
+                </div>
+                <!-- المربع الثاني -->
+                <div class="text-dark white-bg-color p-3 shadow" role="button" style="height: 240px;"
+                    (click)="viewDetails(popularArticles[2])">
+                    <img class="w-100 h-100" [src]="popularArticles[2].urlToImage" [alt]="popularArticles[2].title">
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+
+
+<section>
+    <section class="container-fluid px-5 my-5">
+        <h2 class="text-center decoration">Trending News</h2>
+        <div class="row mt-4">
+            <ng-container *ngFor="let news of trendingArticles">
+                <div *ngIf="news.urlToImage !== null" class="col-md-4 mb-4 " role="button">
+                    <div class="card shadow h-100 white-bg-color" (click)="viewDetails(news)">
+                        <img [src]="news.urlToImage" [alt]="news.title" class="card-img-top">
+                        <div class="card-body">
+                            <h5 class="card-title">{{news.title}}</h5>
+                            <p class="card-text">{{news.description}}</p>
+                        </div>
+                    </div>
+                </div>
+            </ng-container>
+        </div>
+    </section>
+
+</section>
+
+
