@@ -1,4 +1,3 @@
-// استبدال require بـ import الديناميكي
 let fetch;
 
 exports.handler = async function (event, context) {
@@ -7,7 +6,7 @@ exports.handler = async function (event, context) {
     fetch = (await import('node-fetch')).default;
   }
 
-  const { section, type, country, category, q } = event.queryStringParameters;
+  const { section, type, country, category, source, q } = event.queryStringParameters;
 
   const apiKey = "77a799269451407394253d248e88af99"; // استخدم مفتاح API الخاص بك
   let url = `https://newsapi.org/v2/top-headlines?apiKey=${apiKey}`;
@@ -22,8 +21,11 @@ exports.handler = async function (event, context) {
   if (category) {
     url += `&category=${category}`;
   }
+  if (source) {
+    url += `&sources=${source}`; // إضافة مصدر الأخبار
+  }
   if (q) {
-    url += `&q=${q}`;
+    url += `&q=${q}`; // إضافة البحث باستخدام مصطلح معين
   }
 
   try {
@@ -51,4 +53,3 @@ exports.handler = async function (event, context) {
     };
   }
 };
-
