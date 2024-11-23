@@ -16,6 +16,7 @@ const routes: Routes = [
   { path: 'spesific-article/:title', component: SpecificArticleComponent },
   { path: 'favourite-articles', component: FavouriteArticlesComponent },
   { path: 'about', component: AboutComponent },
+  { path: '**', redirectTo: "/home", pathMatch: 'full' },
 
   
 

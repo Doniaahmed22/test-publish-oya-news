@@ -7,62 +7,104 @@ import { map, Observable, Subscription } from 'rxjs';
 })
 export class GetAPIsService {
 
-  // private apiKey: string = '77a799269451407394253d248e88af99';
-  private apiKey: string = '77a799269451407394253d248e88af99';
+  //   // private apiKey: string = '77a799269451407394253d248e88af99';
+  //   private apiKey: string = '77a799269451407394253d248e88af99';
 
 
-  constructor(private _HttpClient: HttpClient) { }
+  //   constructor(private _HttpClient: HttpClient) { }
 
-  getSpecificCategory(section: string, type: string): Observable<any> {
-    return this._HttpClient.get(`https://newsapi.org/v2/top-headlines?${section}=${type}&apiKey=${this.apiKey}`);
-  }
+  //   getSpecificCategory(section: string, type: string): Observable<any> {
+  //     return this._HttpClient.get(`https://newsapi.org/v2/top-headlines?${section}=${type}&apiKey=${this.apiKey}`);
+  //   }
 
-  private selectedArticle: any;
+  //   private selectedArticle: any;
 
-  setArticle(article: any): void {
-    this.selectedArticle = article;
-  }
+  //   setArticle(article: any): void {
+  //     this.selectedArticle = article;
+  //   }
 
-  getArticle(): any {
-    return this.selectedArticle;
-  }
-
-
-  articlesFilter(country: string = "", source: string = "", category: string = "", q: string = ""): Observable<any> {
-    return this._HttpClient.get(`https://newsapi.org/v2/top-headlines?country=${country}&sources=${source}&category=${category}&q=${q}&apiKey=${this.apiKey}`);
-  }
+  //   getArticle(): any {
+  //     return this.selectedArticle;
+  //   }
 
 
-  // randomArticles():Observable<any>{
-  //   return this._HttpClient.get(`https://newsapi.org/v2/top-headlines?country=us&category=technology&apiKey=${this.apiKey}`)
+  //   articlesFilter(country: string = "", source: string = "", category: string = "", q: string = ""): Observable<any> {
+  //     return this._HttpClient.get(`https://newsapi.org/v2/top-headlines?country=${country}&sources=${source}&category=${category}&q=${q}&apiKey=${this.apiKey}`);
+  //   }
+
+
+  //   // randomArticles():Observable<any>{
+  //   //   return this._HttpClient.get(`https://newsapi.org/v2/top-headlines?country=us&category=technology&apiKey=${this.apiKey}`)
+  //   // }
+
+
+
+
+
+  // randomArticles(): Observable<any[]> {
+  //   return this._HttpClient.get(`https://newsapi.org/v2/top-headlines?country=us&category=technology&apiKey=${this.apiKey}`).pipe(
+  //     map((response: any) => {
+  //       // جلب المقالات من النتائج
+  //       const articles = response.articles;
+
+  //       // التحقق من أن هناك نتائج كافية
+  //       if (!articles || articles.length === 0) {
+  //         return [];
+  //       }
+
+  //       // اختيار عدد عشوائي بين 5 و8
+  //       const randomCount = Math.floor(Math.random() * (8 - 5 + 1)) + 5;
+
+  //       // خلط المقالات للحصول على ترتيب عشوائي
+  //       const shuffledArticles = articles.sort(() => 0.5 - Math.random());
+
+  //       // اختيار العدد المطلوب
+  //       return shuffledArticles.slice(0, randomCount);
+  //     })
+  //   );
   // }
 
 
 
 
 
-randomArticles(): Observable<any[]> {
-  return this._HttpClient.get(`https://newsapi.org/v2/top-headlines?country=us&category=technology&apiKey=${this.apiKey}`).pipe(
-    map((response: any) => {
-      // جلب المقالات من النتائج
-      const articles = response.articles;
+  private apiUrl = '/api'; // هذا الرابط يستدعي الوظيفة على Netlify
 
-      // التحقق من أن هناك نتائج كافية
-      if (!articles || articles.length === 0) {
-        return [];
-      }
+  constructor(private _HttpClient: HttpClient) { }
 
-      // اختيار عدد عشوائي بين 5 و8
-      const randomCount = Math.floor(Math.random() * (8 - 5 + 1)) + 5;
+  getSpecificCategory(section: string, type: string): Observable<any> {
+    return this._HttpClient.get(`${this.apiUrl}?section=${section}&type=${type}`);
+  }
 
-      // خلط المقالات للحصول على ترتيب عشوائي
-      const shuffledArticles = articles.sort(() => 0.5 - Math.random());
 
-      // اختيار العدد المطلوب
-      return shuffledArticles.slice(0, randomCount);
-    })
-  );
-}
+  
+    private selectedArticle: any;
 
+    setArticle(article: any): void {
+      this.selectedArticle = article;
+    }
+
+    getArticle(): any {
+      return this.selectedArticle;
+    }
+
+
+  articlesFilter(country: string = "", source: string = "", category: string = "", q: string = ""): Observable<any> {
+    return this._HttpClient.get(`${this.apiUrl}?country=${country}&category=${category}&q=${q}`);
+  }
+
+  randomArticles(): Observable<any[]> {
+    return this._HttpClient.get(`${this.apiUrl}?country=us&category=technology`).pipe(
+      map((response: any) => {
+        const articles = response.articles;
+        if (!articles || articles.length === 0) {
+          return [];
+        }
+        const randomCount = Math.floor(Math.random() * (8 - 5 + 1)) + 5;
+        const shuffledArticles = articles.sort(() => 0.5 - Math.random());
+        return shuffledArticles.slice(0, randomCount);
+      })
+    );
+  }
 
 }
