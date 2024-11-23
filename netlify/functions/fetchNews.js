@@ -22,7 +22,7 @@ exports.handler = async function (event, context) {
     url += `&category=${category}`;
   }
   if (source) {
-    url += `&sources=${source}`; // إضافة مصدر الأخبار
+    url += `&source=${source}`; // إضافة مصدر الأخبار
   }
   if (q) {
     url += `&q=${q}`; // إضافة البحث باستخدام مصطلح معين
