@@ -1,6 +1,6 @@
 [build]
-command = "ng build --prod"
-publish = "dist/news-project/"
+command = "ng build --configuration=production"
+publish = "dist/news-project"
 
 
 [[redirects]]
